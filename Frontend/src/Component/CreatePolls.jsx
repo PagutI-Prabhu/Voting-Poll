@@ -7,12 +7,8 @@ const CreatePolls = () => {
   let [state, setState] = useState({
     question: '',
     option1: '',
-    option2: '',
-    option3: '',
-    option4: ''
+    option2: ''
   });
-
-  let [showMore, setShowMore] = useState(false);
 
   let handleChange = (e) => {
     let { name, value } = e.target;
@@ -26,7 +22,6 @@ const CreatePolls = () => {
       !state.question.trim() ||
       !state.option1.trim() ||
       !state.option2.trim() ||
-      (showMore && (!state.option3.trim() || !state.option4.trim()))
     ) {
       alert("Please fill all required fields");
       return;
@@ -64,14 +59,6 @@ const CreatePolls = () => {
         <input onChange={handleChange} type="text" name='option1' placeholder='Option 1' />
         <input onChange={handleChange} type="text" name='option2' placeholder='Option 2' /> <br />
       
-        {showMore && (
-          <>
-            <input onChange={handleChange} type="text" name='option3' placeholder='Option 3' /> <br />
-            <input onChange={handleChange} type="text" name='option4' placeholder='Option 4' /> <br />
-          </>
-        )}
-
-        {/* <button type=""className='addOptionBtn'>+Add Option</button> */}
         <button type="submit" className='submitBtn' onClick={()=>navigate('/ListPolls')}>Create Poll</button>
       </form>
     </div>
