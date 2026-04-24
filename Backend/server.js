@@ -4,7 +4,7 @@ import cors from "cors";
 
 const app = express();
 
-app.use(cors()); // allow frontend to access backend
+app.use(cors());
 app.use(express.json());
 
 const db = { polls: [] };
@@ -28,8 +28,7 @@ app.post("/polls", (req, res) => {
   res.send(poll);
 });
 
-//Vote API
-// Increase vote count
+// Increasing vote count
 
 app.post("/polls/:id/vote", (req, res) => {
   const poll = db.polls.find((p) => p.id === req.params.id);
