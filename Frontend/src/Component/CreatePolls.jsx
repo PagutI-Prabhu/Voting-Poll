@@ -10,6 +10,7 @@ const CreatePolls = () => {
     option2: ''
   });
 
+
   let handleChange = (e) => {
     let { name, value } = e.target;
     setState({ ...state, [name]: value });
@@ -19,13 +20,13 @@ const CreatePolls = () => {
     e.preventDefault();
 
     if (
-      !state.question.trim() ||
-      !state.option1.trim() ||
-      !state.option2.trim() ||
-    ) {
-      alert("Please fill all required fields");
-      return;
-    }
+    !state.question.trim() ||
+    !state.option1.trim() ||
+    !state.option2.trim()
+  ) {
+    alert("Please fill all required fields");
+    return;
+  }
 
       
     try {
@@ -59,6 +60,7 @@ const CreatePolls = () => {
         <input onChange={handleChange} type="text" name='option1' placeholder='Option 1' />
         <input onChange={handleChange} type="text" name='option2' placeholder='Option 2' /> <br />
       
+
         <button type="submit" className='submitBtn' onClick={()=>navigate('/ListPolls')}>Create Poll</button>
       </form>
     </div>
